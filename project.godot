@@ -419,11 +419,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/scaffolder/src/gui/notifications/notifications.gd"
 }, {
-"base": "TransientAnnotator",
-"class": "OnBeatHashAnnotator",
-"language": "GDScript",
-"path": "res://addons/scaffolder/src/annotators/transient_annotators/on_beat_hash_annotator.gd"
-}, {
 "base": "Node",
 "class": "OverlayMaskTransition",
 "language": "GDScript",
@@ -982,7 +977,6 @@ _global_script_class_icons={
 "NotificationScreen": "",
 "NotificationSize": "",
 "Notifications": "",
-"OnBeatHashAnnotator": "",
 "OverlayMaskTransition": "",
 "PauseScreen": "",
 "PlaceholderLoadingImage": "",
@@ -1084,17 +1078,44 @@ _global_script_class_icons={
 
 config/name="Scaffolder Bootstrap"
 run/main_scene="res://src/main.tscn"
+boot_splash/bg_color=Color( 0.12549, 0.145098, 0.192157, 1 )
 config/icon="res://icon.png"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
 
 [autoload]
 
 Sc="*res://addons/scaffolder/src/config/sc.gd"
 AppManifest="*res://src/app_manifest.gd"
 
+[display]
+
+window/handheld/orientation="sensor"
+window/stretch/aspect="expand"
+
+[input_devices]
+
+pointing/ios/touch_delay=0.005
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_render/layer_2="character"
+2d_physics/layer_1="surfaces_tilemaps"
+
+[logging]
+
+file_logging/enable_file_logging=true
+
 [physics]
 
+common/physics_fps=60.0
 common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=1
+quality/intended_usage/framebuffer_allocation.mobile=1
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_clear_color=Color( 0.270588, 0.239216, 0.188235, 1 )
 environment/default_environment="res://default_env.tres"
